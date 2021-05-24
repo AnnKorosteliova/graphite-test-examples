@@ -19,11 +19,6 @@ public class ApplicationDropwizard {
         Histogram histogram = metricRegistry.histogram("histogram");
         Timer timer = metricRegistry.timer("timer");
 
-        ///////////////////////////
-        ConsoleReporter consoleReporter = ConsoleReporter.forRegistry(metricRegistry).build();
-        consoleReporter.start(5, TimeUnit.MILLISECONDS);
-        consoleReporter.report();
-
         //Creating Graphite class
         final Graphite graphite = new Graphite(new InetSocketAddress("testgraph.tk", 2003));
 
@@ -37,7 +32,6 @@ public class ApplicationDropwizard {
 
         reporter.start(5, TimeUnit.MILLISECONDS);
         reporter.report();
-
 
     }
 
